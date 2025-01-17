@@ -1,0 +1,122 @@
+/* General Styles */
+.search-component {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-button, .dropdown, .field-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-button {
+    color: #fff;
+    background: linear-gradient(90deg, #007bff, #0056d2);
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background: linear-gradient(90deg, #0056d2, #003b9b);
+  }
+  
+  .field-input::placeholder, .dropdown::placeholder {
+    color: #aaa;
+  }
+  
+  /* Options Container */
+  .options-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .option {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .option.selected {
+    color: #007bff;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+  }
+  
+  .icon {
+    font-size: 24px;
+  }
+  
+  .label {
+    margin-top: 5px;
+  }
+  
+  /* Fields Container */
+  .fields-container, .flight-container, .train-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .field-input{
+    width: 100%;
+  }
+  .field {
+    margin-bottom: 20px;
+  }
+  
+  .field-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .field-label {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  /* Flex Layout for Fields */
+  .flight-field, .train-field {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Search Button Container */
+  .search-button-container {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .field-inputs {
+    width: 700px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
