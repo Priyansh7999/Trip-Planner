@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import "./TravelGrid.css";
 import Heritage from "../../assets/Heritage.jpg";
 import Romantic from "../../assets/Romantic.jpg";
@@ -7,8 +7,9 @@ import Foodies from "../../assets/Foodies.jpg";
 import Hills from "../../assets/Hills.jpg";
 import Beach from "../../assets/Beach.jpg";
 import { TripPlannerContext } from "../../context";
+
 const TravelGrid = () => {
-  const {setTripCategory} = useContext(TripPlannerContext);
+  const { setTripCategory } = useContext(TripPlannerContext);
   const navigate = useNavigate();
 
   const articles = [
@@ -44,34 +45,31 @@ const TravelGrid = () => {
     },
   ];
 
-  const handleCardClick = (category,image,description) => {
-    const formattedCategory = category.toLowerCase().replace(/\s+/g, "-"); // Convert to URL-friendly format
-    setTripCategory({ name: category, image: image , description: description });
+  const handleCardClick = (category, image, description) => {
+    const formattedCategory = category.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+    setTripCategory({ name: category, image: image, description: description });
     navigate(`/plan-trip/${formattedCategory}`);
   };
 
   return (
-    <>
     <div className="travel-grid-header">
-        <h2>PLAN TRIP</h2>
-        <p>Discover the most beautiful places to visit, the best things to do, where to stay, and more in India.</p>
-    
-    <div className="travel-grid">
-      {articles.map((article, index) => (
-        <div
-          key={index}
-          className={`travel-card ${index === 0 ? "large" : ""}`}
-          style={{ backgroundImage: `url(${article.image})` }}
-          onClick={() => handleCardClick(article.category, article.image,article.description)}
-        >
-          <div className="travel-card-content">
-            <h3>{article.title}</h3>
+      <h2>PLAN TRIP</h2>
+      <p>Discover the most beautiful places to visit, the best things to do, where to stay, and more in India.</p>
+      <div className="travel-grid">
+        {articles.map((article, index) => (
+          <div
+            key={index}
+            className={`travel-card ${index === 0 ? "large" : ""}`}
+            style={{ backgroundImage: `url(${article.image})` }}
+            onClick={() => handleCardClick(article.category, article.image, article.description)}
+          >
+            <div className="travel-card-content">
+              <h3>{article.title}</h3>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-    </div>
-    </>
   );
 };
 
