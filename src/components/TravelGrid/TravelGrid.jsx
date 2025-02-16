@@ -5,7 +5,7 @@ import heritage from "./public/heritage.jpg";
 import Romantic from "./public/Romantic.jpg";
 import Foodies from "./public/Foodies.jpg";
 import Hills from "./public/Hills.jpg";
-import Beach from "./public/Beach.jpg";
+import Beach from "./public/beach.jpg";
 import { TripPlannerContext } from "../../context";
 
 const TravelGrid = () => {
