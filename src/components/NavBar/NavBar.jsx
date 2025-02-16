@@ -1,52 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import images from "../../assets/images.png"
+import React, { useState } from 'react';
 import './NavBar.css';
-
-export default function NavBar() {
-  const [isNavBlack, setIsNavBlack] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  // Handle scrolling effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsNavBlack(true);
-      } else {
-        setIsNavBlack(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  // Toggle menu on mobile view
-  const handleMenuClick = () => {
-    setMenuOpen(!menuOpen);
+import logo from "../../assets/images.png"
+import Authentication from '../Login-Signup-Form/Authentication';
+import { div } from 'framer-motion/client';
+const NavBar = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMobile(!isMobile);
   };
 
+  function handleAuthentication() {
+    setIsAuthOpen(!isAuthOpen);
+  }
+
   return (
-    <header>
-      <nav className={isNavBlack ? 'black' : ''}>
-        <div className="menu-icon" onClick={handleMenuClick}>
-          <i className="fa fa-bars fa-2x"></i>
-        </div>
+    <nav className="navbar">
+      <div className="navbar-container">
         <div className="logo">
-          <img src={images} alt="Logo" width={50} height={50} style={{ borderRadius: '50%' }}/>
+          <img src={logo} alt="Logo" />
         </div>
-        <div className={`menu ${menuOpen ? 'showing' : ''}`}>
+        <div className={`nav-links ${isMobile ? 'active' : ''}`}>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#">Search</a></li>
+            <li><a href="/search">Search</a></li>
             <li><a href="/plantrip">Plan Trip</a></li>
-            <li><a href="#">Contact</a></li>
-            <li style={{borderRadius: '50%'}}><a href="#login"><i className="fa fa-user"></i></a></li>
+            <li><a href="/about">Contact Us</a></li>
+            <li onClick={handleAuthentication}><i className="fa fa-user"></i></li>
           </ul>
         </div>
-      </nav>
-    </header>
+        <div className="toggle-button" onClick={toggleMenu}>
+          <i className={`fa fa-bars fa-2x`}></i>
+        </div>
+      </div>
+
+      {isAuthOpen && (
+        <div className='overlay' onClick={handleAuthentication}>
+          <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
+            <Authentication />
+          </div>
+        </div>
+      )}
+    </nav>
   );
-}
+};
+
+export default NavBar;

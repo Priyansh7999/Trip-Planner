@@ -25,7 +25,7 @@ const AllCards = ({ places }) => {
               <button
                 className="explore-button"
                 onClick={() =>{
-                  navigate(`/plan-trip/${place.name}`)
+                  navigate(`/plantrip/${place.name}`)
                   setTripCategory({ name: place.name, image: place.img , description: place.description });
                 }}
 

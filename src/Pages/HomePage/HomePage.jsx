@@ -20,7 +20,7 @@ export default function HomePage() {
         </div>
         {/* NAVBAR */}
         <div className="Navbar">
-          <NavBar />
+          {/* <NavBar /> */}
         </div>
 
         {/* HERO SECTION */}

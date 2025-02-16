@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./TravelGrid.css";
-import Heritage from "../../assets/Heritage.jpg";
-import Romantic from "../../assets/Romantic.jpg";
-import Foodies from "../../assets/Foodies.jpg";
-import Hills from "../../assets/Hills.jpg";
-import Beach from "../../assets/Beach.jpg";
+import heritage from "./public/heritage.jpg";
+import Romantic from "./public/Romantic.jpg";
+import Foodies from "./public/Foodies.jpg";
+import Hills from "./public/Hills.jpg";
+import Beach from "./public/Beach.jpg";
 import { TripPlannerContext } from "../../context";
 
 const TravelGrid = () => {
@@ -23,7 +23,7 @@ const TravelGrid = () => {
       category: "Heritage",
       title: "Best Tourist Attractions",
       description: "Explore historical places & countless ideas for an epic break and make way to explore the prominent monuments, streets, architectures, and UNESCO recognized sites",
-      image: Heritage,
+      image: heritage,
     },
     {
       category: "Foodies",

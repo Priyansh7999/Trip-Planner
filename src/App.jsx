@@ -14,6 +14,7 @@ import PlanTripSelected from './Pages/PlanTripSelected/PlanTripSelected';
 import MonthBased from './Pages/FilterByMonth/MonthBased';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import SplashCursor from './ui/SplashCursor'
+import NavBar from './components/NavBar/NavBar';
 export default function App() {
   return (
     <div>
@@ -21,9 +22,9 @@ export default function App() {
       <Router>
                 <Routes>
                     <Route element={<Layout />}>
+
                         <Route path="/" element={<HomePage />} />
                         <Route path="/hero" element={<HeroSection />} />
-                        <Route path="/search" element={<Search />} />
                         <Route path="/slider" element={<ImageSlider />} />
                         <Route path="/focus" element={<Trending />} />
                         <Route path="/all-city" element={<AllCityList trending="trendingcity" />} />
@@ -31,7 +32,7 @@ export default function App() {
                         <Route path="/add-city" element={<AddCityDetails />} />
                         <Route path="/city/:cityName" element={<SelectedCity />} />
                         <Route path="/plantrip" element={<PlanTrip />} />
-                        <Route path="/plan-trip/:placeName" element={<PlanTripSelected />} />
+                        <Route path="/plantrip/:placeName" element={<PlanTripSelected />} />
                         <Route path="/month/:month" element={<MonthBased />} />
                         <Route path='*' element={<PageNotFound />} />
                     </Route>
